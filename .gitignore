@@ -472,3 +472,9 @@ FodyWeavers.xsd
 *.sln.iml
 
 ###############################################33
+
+# Nocab added
+.config/*
+.vscode/*
+ProjectSettings/*
+*.xcf
