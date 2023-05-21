@@ -13,7 +13,7 @@ public class TileManager : MonoBehaviour
     void Start()
     {
         compileTileToScript();
-        // TODO: Itterate over all the TileToScriptManagers in this Grid object and grab them that way
+        // TODO: Iterate over all the TileToScriptManagers in this Grid object and grab them that way
     }
 
     void compileTileToScript()
