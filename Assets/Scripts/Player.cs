@@ -25,12 +25,8 @@ public class Player : MonoBehaviour
   {
     if (Input.GetKeyDown("space"))
     {
-      Vector3 currentPos = this.transform.position;
-      Vector3Int currentPosInt = new Vector3Int(Mathf.FloorToInt(currentPos.x), Mathf.FloorToInt(currentPos.y), Mathf.FloorToInt(currentPos.z));
-      TileBase currentTile = tileMap.GetTile(currentPosInt);
-      NocabTile currentTileNocab = tileManager.UnityToNocabTile(currentTile);
-
-      currentTileNocab.onClick();
+      NocabTile currentTile = tileManager.GetTileAtPosition(this.transform.position);
+      currentTile.onEnter();
     }
   }
 

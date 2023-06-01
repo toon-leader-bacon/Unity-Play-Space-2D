@@ -8,10 +8,13 @@ public class TileManager : MonoBehaviour
   public TileToScriptMapper[] maps;
 
   protected Dictionary<TileBase, NocabTile> tileToScript = new Dictionary<TileBase, NocabTile>();
+  protected Tilemap tileMap;
 
   // Start is called before the first frame update
   void Start()
   {
+    tileMap = GetComponentInChildren<Tilemap>();
+
     compileTileToScript();
     // TODO: Iterate over all the TileToScriptManagers in this Grid object and grab them that way
   }
@@ -33,6 +36,17 @@ public class TileManager : MonoBehaviour
   public NocabTile UnityToNocabTile(TileBase unityTileType)
   {
     return tileToScript[unityTileType];
+  }
+
+  public NocabTile GetTileAtPosition(Vector3Int pos)
+  {
+    return UnityToNocabTile(tileMap.GetTile(pos));
+  }
+  
+  public NocabTile GetTileAtPosition(Vector3 pos)
+  {
+    Vector3Int posInt = new Vector3Int(Mathf.FloorToInt(pos.x), Mathf.FloorToInt(pos.y), Mathf.FloorToInt(pos.z));
+    return GetTileAtPosition(posInt);
   }
 
 }
