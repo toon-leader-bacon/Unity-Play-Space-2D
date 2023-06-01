@@ -779,7 +779,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &695322556
+--- !u!1 &1309421843
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -787,21 +787,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 695322557}
+  - component: {fileID: 1309421844}
+  - component: {fileID: 1309421845}
   m_Layer: 0
-  m_Name: TileManager
+  m_Name: WaterTilesToScript
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &695322557
+--- !u!4 &1309421844
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 695322556}
+  m_GameObject: {fileID: 1309421843}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -810,6 +811,21 @@ Transform:
   m_Father: {fileID: 2026012324}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1309421845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309421843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b29df07c978ba64b0976f502b08bb89c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tiles:
+  - {fileID: 11400000, guid: e91c775d4ce9036be9e7c823f0d6c493, type: 2}
+  scriptForTiles: {fileID: 4171744083806103317, guid: 777c5e2a3d77bf10f9a840db9361673e, type: 3}
 --- !u!1 &1702921093
 GameObject:
   m_ObjectHideFlags: 0
@@ -919,7 +935,7 @@ GameObject:
   - component: {fileID: 1854971086}
   - component: {fileID: 1854971087}
   m_Layer: 0
-  m_Name: GrassTileManager
+  m_Name: GrassTilesToScript
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -954,6 +970,54 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tiles:
   - {fileID: 11400000, guid: f8f92b5887b271bc296e88622b739e53, type: 2}
+  scriptForTiles: {fileID: 4171744083806103317, guid: adec6751152cde4ec9cfe4e1e60f6776, type: 3}
+--- !u!1 &2014111334
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2014111335}
+  - component: {fileID: 2014111336}
+  m_Layer: 0
+  m_Name: StoneTilesToScript
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2014111335
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014111334}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2026012324}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2014111336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014111334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b29df07c978ba64b0976f502b08bb89c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tiles:
+  - {fileID: 11400000, guid: b23866fed3a2729e8bde88e9e645d6d7, type: 2}
+  scriptForTiles: {fileID: 4171744083806103317, guid: 06a14266d26db12c29d49281de9932de, type: 3}
 --- !u!1 &2026012322
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,6 +1028,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2026012324}
   - component: {fileID: 2026012323}
+  - component: {fileID: 2026012325}
+  - component: {fileID: 2026012326}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -997,7 +1063,34 @@ Transform:
   m_Children:
   - {fileID: 189476578}
   - {fileID: 1854971086}
-  - {fileID: 695322557}
+  - {fileID: 1309421844}
+  - {fileID: 2014111335}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2026012325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026012322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df3af4018092eb5c1819ce2b461d1114, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2026012326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026012322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a2d0a687da19ea1b2898886393fa99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maps:
+  - {fileID: 1854971087}
