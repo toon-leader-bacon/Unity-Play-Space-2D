@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type_: 2
   name_: Water tile
+  walkable: 0

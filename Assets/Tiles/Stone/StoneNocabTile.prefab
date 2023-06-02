@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type_: 1
   name_: Stone Tile
+  walkable: 1

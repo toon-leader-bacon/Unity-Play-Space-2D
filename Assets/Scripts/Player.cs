@@ -53,7 +53,16 @@ public class Player : MonoBehaviour
     }
 
     Vector3 newPos = this.transform.position + new Vector3(horizDir, verticalDir);
-    this.transform.position = newPos;
+    NocabTile newTile = tileManager.GetTileAtPosition(newPos);
+    if (newTile.walkable)
+    {
+      this.transform.position = newPos;
+    }
+    else
+    {
+      Debug.Log($"Can't walk onto other tile of type: {newTile.name}");
+    }
+
   }
 
 }

@@ -4,6 +4,7 @@ public class NocabTile : MonoBehaviour
 {
   public int type_;
   public string name_;
+  public bool walkable = true;
 
   public NocabTile()
   {
