@@ -3,13 +3,18 @@ using UnityEngine;
 
 public class BresenhamLineUtility {
 
+    public enum FatLineStyle {
+        Off,
+        XIncrement,
+        YIncrement
+    };
 
 
-    public static List<Vector2Int> getLine_list(Vector2Int start, Vector2Int end) {
-        return new List<Vector2Int>(getLine_yield(start, end));
+    public static List<Vector2Int> getLine_list(Vector2Int start, Vector2Int end, FatLineStyle fatLine = FatLineStyle.Off) {
+        return new List<Vector2Int>(getLine_yield(start, end, fatLine));
     }
     
-    public static IEnumerable<Vector2Int> getLine_yield(Vector2Int start, Vector2Int end) {
+    public static IEnumerable<Vector2Int> getLine_yield(Vector2Int start, Vector2Int end, FatLineStyle fatLine = FatLineStyle.Off) {
         int deltaY = end.y - start.y;
         int deltaX = end.x - start.x;
 
@@ -25,17 +30,27 @@ public class BresenhamLineUtility {
 
         // Sloped lines
         else if (Mathf.Abs(deltaY) < Mathf.Abs(deltaX))  {
-            if (start.x > end.x) { return BresenhamLow(end, start); }
-            else                 { return BresenhamLow(start, end); }
+            if (start.x > end.x) { return BresenhamLow(end, start, fatLine); }
+            else                 { return BresenhamLow(start, end, fatLine); }
         } else {
-            if (start.y > end.y) { return BresenhamHigh(end, start); }
-            else                 { return BresenhamHigh(start, end); }
+            if (start.y > end.y) { return BresenhamHigh(end, start, fatLine); }
+            else                 { return BresenhamHigh(start, end, fatLine); }
         }
     }
 
 
-    // Bresenham's line alg taken from wikipedia https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm
-    private static IEnumerable<Vector2Int> BresenhamLow(Vector2Int start, Vector2Int end) {
+    /**
+     * Bresenham's line alg taken from wikipedia https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm
+     * The regular Bresenham line alg will produce a sloped line that only has
+     * pixel's corners touching. 
+     * NOTE: In the fat line case there are two possible ways to add the extra pixel
+     *
+     *  fatLine=Off    fatLine=XIncrement  fatLine=YIncrement
+     *         000             000              X000
+     *      000      vs     000X      or     X000
+     *   000             000X              000
+     */
+    private static IEnumerable<Vector2Int> BresenhamLow(Vector2Int start, Vector2Int end, FatLineStyle fatLine = FatLineStyle.Off) {
         int deltaX = end.x - start.x;
         int deltaY = end.y - start.y;
         int yDirection = 1;
@@ -50,6 +65,18 @@ public class BresenhamLineUtility {
             yield return new Vector2Int(x, y);
             // t.SetPixel(x, y, c);
             if (error > 0) {
+                switch(fatLine) {
+                    // Yield an extra tile in the Fat Line cases
+                    case FatLineStyle.XIncrement:
+                        yield return new Vector2Int(x + 1, y); 
+                        break;
+                    case FatLineStyle.YIncrement:
+                        yield return new Vector2Int(x, y + 1);
+                        break;
+                    case FatLineStyle.Off:
+                    default:
+                        break;
+                }
                 y += yDirection;
                 error -= (2 * deltaX);
             }
@@ -57,7 +84,7 @@ public class BresenhamLineUtility {
         }
     }
 
-    private static IEnumerable<Vector2Int> BresenhamHigh(Vector2Int start, Vector2Int end) {
+    private static IEnumerable<Vector2Int> BresenhamHigh(Vector2Int start, Vector2Int end, FatLineStyle fatLine = FatLineStyle.Off) {
         int deltaX = end.x - start.x;
         int deltaY = end.y - start.y;
         int xDirection = 1;
@@ -71,6 +98,18 @@ public class BresenhamLineUtility {
         for (int y = start.y; y <= end.y; y++) {
             yield return new Vector2Int(x, y);
             if (error > 0) {
+                switch(fatLine) {
+                    // Yield an extra tile in the Fat Line cases
+                    case FatLineStyle.XIncrement:
+                        yield return new Vector2Int(x + 1, y); 
+                        break;
+                    case FatLineStyle.YIncrement:
+                        yield return new Vector2Int(x, y + 1);
+                        break;
+                    case FatLineStyle.Off:
+                    default:
+                        break;
+                }
                 x += xDirection;
                 error -= (2 * deltaY);
             }

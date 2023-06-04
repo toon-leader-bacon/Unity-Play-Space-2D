@@ -15,9 +15,11 @@ public class DarkestDungeonMapGen : MonoBehaviour
     tilemap.SetTile(new Vector3Int(0, 0, 0), roomTile);
 
     buildLine(new Vector2Int(3, 0), new Vector2Int(8, 1));
+    buildLine(new Vector2Int(3, 0), new Vector2Int(6, 8));
     // Build the rooms 2nd so they override the halls
     buildRoom(new Vector2Int(3, 0));
     buildRoom(new Vector2Int(8, 1));
+    buildRoom(new Vector2Int(6, 8));
 
   }
 
@@ -30,7 +32,7 @@ public class DarkestDungeonMapGen : MonoBehaviour
 
   void buildLine(Vector2Int start, Vector2Int end)
   {
-    foreach (Vector2Int pointOnLine in BresenhamLineUtility.getLine_yield(start, end))
+    foreach (Vector2Int pointOnLine in BresenhamLineUtility.getLine_yield(start, end, BresenhamLineUtility.FatLineStyle.XIncrement))
     {
       tilemap.SetTile(new Vector3Int(pointOnLine.x, pointOnLine.y), hallTile);
     }
