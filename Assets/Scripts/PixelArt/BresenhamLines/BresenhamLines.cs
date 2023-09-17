@@ -71,7 +71,7 @@ public class BresenhamLineUtility {
                         yield return new Vector2Int(x + 1, y); 
                         break;
                     case FatLineStyle.YIncrement:
-                        yield return new Vector2Int(x, y + 1);
+                        yield return new Vector2Int(x, y + yDirection);
                         break;
                     case FatLineStyle.Off:
                     default:
@@ -101,7 +101,7 @@ public class BresenhamLineUtility {
                 switch(fatLine) {
                     // Yield an extra tile in the Fat Line cases
                     case FatLineStyle.XIncrement:
-                        yield return new Vector2Int(x + 1, y); 
+                        yield return new Vector2Int(x + xDirection, y); 
                         break;
                     case FatLineStyle.YIncrement:
                         yield return new Vector2Int(x, y + 1);
