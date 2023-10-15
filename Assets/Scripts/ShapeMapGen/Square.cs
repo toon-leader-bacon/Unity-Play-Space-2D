@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class Square : MonoBehaviour
+public class Square
 {
     public int sideLength { get; set; } = 0;
     public Tile tileType { get; set; }
@@ -14,7 +12,11 @@ public class Square : MonoBehaviour
     {
         get
         {
-            return new Vector3Int(topLeftCorner.x + (sideLength - 1), topLeftCorner.y, topLeftCorner.z);
+            return new Vector3Int(
+                topLeftCorner.x + (sideLength - 1),
+                topLeftCorner.y,
+                topLeftCorner.z
+            );
         }
     }
 
@@ -22,7 +24,11 @@ public class Square : MonoBehaviour
     {
         get
         {
-            return new Vector3Int(topLeftCorner.x, topLeftCorner.y - (sideLength - 1), topLeftCorner.z);
+            return new Vector3Int(
+                topLeftCorner.x,
+                topLeftCorner.y - (sideLength - 1),
+                topLeftCorner.z
+            );
         }
     }
 

@@ -1,10 +1,8 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class Rectangle : MonoBehaviour
+public class Rectangle
 {
     public Vector3Int topLeftCorner { get; set; } = new Vector3Int(0, 0, 0);
     public Vector3Int botRightCorner { get; set; } = new Vector3Int(0, 0, 0);

@@ -20,12 +20,12 @@ public class Playground : MonoBehaviour
     void Start()
     {
         outlineWithTrees();
-        InvokeRepeating("blab", 0, 1);
+        InvokeRepeating(nameof(blab), 0, 1);
     }
 
     public void outlineWithTrees()
     {
-        NocabmonMapContainer mapContainer = new NocabmonMapContainer();
+        var mapContainer = new NocabmonMapContainer<NocabTile>();
 
         Vector3Int topLeftCorner = new Vector3Int(xOffset, height);
         Rectangle background = new Rectangle(topLeftCorner, width, height);
@@ -70,13 +70,17 @@ public class Playground : MonoBehaviour
         Line bottomBlocker = new Line(
             new Vector3Int(xOffset, zoneStart),
             new Vector3Int(xOffset + width, zoneStart)
-        );
-        bottomBlocker.tileType = treeTile;
+        )
+        {
+            tileType = treeTile
+        };
         Line topBlocker = new Line(
             new Vector3Int(xOffset, zoneStart + zoneHeight),
             new Vector3Int(xOffset + width, zoneStart + zoneHeight)
-        );
-        topBlocker.tileType = treeTile;
+        )
+        {
+            tileType = treeTile
+        };
 
         bottomBlocker.drawToTileMap(tm);
         topBlocker.drawToTileMap(tm);
@@ -84,13 +88,18 @@ public class Playground : MonoBehaviour
         Line botEntrance = new Line(
             new Vector3Int(startEdge, zoneStart),
             new Vector3Int(startEdge + holeSize, zoneStart)
-        );
-        botEntrance.tileType = backgroundTile;
+        )
+        {
+            tileType = backgroundTile
+        };
         Line topEntrance = new Line(
             new Vector3Int(startEdge, zoneStart + zoneHeight),
             new Vector3Int(startEdge + holeSize, zoneStart + zoneHeight)
-        );
-        topEntrance.tileType = backgroundTile;
+        )
+        {
+            tileType = backgroundTile
+        };
+
         botEntrance.drawToTileMap(tm);
         topEntrance.drawToTileMap(tm);
     }

@@ -1,12 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Numerics;
-using System.Runtime.InteropServices;
-using UnityEngine;
-using UnityEngine.Tilemaps;
 
-public class Map : MonoBehaviour
+public class Map
 {
     public List<Line> hallways { get; set; } = new List<Line>();
     public List<Square> rooms { get; set; } = new List<Square>();

@@ -1,14 +1,6 @@
-using System.Buffers;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel.Composition.ReflectionModel;
-using System.Numerics;
-using System.Runtime.InteropServices;
-using System.Runtime.Remoting.Messaging;
-using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class DrawAll : MonoBehaviour
+public class DrawAll 
 {
     public Map map { get; set; }
 
