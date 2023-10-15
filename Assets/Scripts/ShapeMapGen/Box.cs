@@ -60,6 +60,14 @@ public class Box
         );
     }
 
+    public bool ContainsPoint(Vector3Int pointToCheck)
+    {
+        return (topLeftCorner.x <= pointToCheck.x)
+            && (pointToCheck.x <= botRightCorner.x) // Check horizontal
+            && (topLeftCorner.y <= pointToCheck.y)
+            && (pointToCheck.y <= botRightCorner.y); // Check vertical
+    }
+
     public Tilemap drawToTileMap(Tilemap toDrawOn)
     {
         // TODO: Some level of optimization. I think each corner gets set twice.

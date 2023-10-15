@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-public class NocabmonMapContainer<TValue> : DictionaryCoords<TValue>
+public static class NocabmonMapDirections
 {
     public static readonly HashablePointInt NORTH = new(0, 1);
     public static readonly HashablePointInt SOUTH = new(0, -1);
@@ -26,15 +26,18 @@ public class NocabmonMapContainer<TValue> : DictionaryCoords<TValue>
             WEST,
             NORTH_WEST
         };
+};
 
+public class NocabmonMapContainer<TValue> : DictionaryCoords<TValue>
+{
     public HashSet<TValue> getCardinalNeighbors(HashablePointInt targetCoord)
     {
-        return getNeighbors_protected(targetCoord, CARDINAL_DIRECTIONS);
+        return getNeighbors_protected(targetCoord, NocabmonMapDirections.CARDINAL_DIRECTIONS);
     }
 
     public HashSet<TValue> getOrdinalNeighbors(HashablePointInt targetCoord)
     {
-        return getNeighbors_protected(targetCoord, ORDINAL_DIRECTIONS);
+        return getNeighbors_protected(targetCoord, NocabmonMapDirections.ORDINAL_DIRECTIONS);
     }
 
     protected HashSet<TValue> getNeighbors_protected(

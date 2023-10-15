@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
 
-public class Playground : MonoBehaviour
+public class BuildRectangleRoute1 : MonoBehaviour
 {
     public Tile treeTile;
     public Tile backgroundTile;
