@@ -826,6 +826,56 @@ MonoBehaviour:
   tiles:
   - {fileID: 11400000, guid: e91c775d4ce9036be9e7c823f0d6c493, type: 2}
   scriptForTiles: {fileID: 4171744083806103317, guid: 777c5e2a3d77bf10f9a840db9361673e, type: 3}
+--- !u!1 &1326981995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1326981997}
+  - component: {fileID: 1326981996}
+  m_Layer: 0
+  m_Name: Playground
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1326981996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326981995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7c7524021772306db42ac1f3a5dea67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  treeTile: {fileID: 11400000, guid: e91c775d4ce9036be9e7c823f0d6c493, type: 2}
+  backgroundTile: {fileID: 11400000, guid: b23866fed3a2729e8bde88e9e645d6d7, type: 2}
+  tm: {fileID: 189476580}
+  width: 16
+  height: 32
+  xOffset: 10
+--- !u!4 &1326981997
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326981995}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.595819, y: 2.6938787, z: 0.085708}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1702921093
 GameObject:
   m_ObjectHideFlags: 0

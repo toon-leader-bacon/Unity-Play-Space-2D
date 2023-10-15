@@ -8,12 +8,12 @@ using UnityEngine.Tilemaps;
 
 public class Map : MonoBehaviour
 {
-    public ArrayList<Line> hallways { get; set; } = new ArrayList<Line>();
-    public ArrayList<Square> rooms { get; set; } = new ArrayList<Square>();
+    public List<Line> hallways { get; set; } = new List<Line>();
+    public List<Square> rooms { get; set; } = new List<Square>();
 
     public Map() { }
 
-    public Map(ArrayList<Line> hallways_, ArrayList<Square> rooms_)
+    public Map(List<Line> hallways_, List<Square> rooms_)
     {
         hallways = hallways_;
         rooms = rooms_;

@@ -12,7 +12,7 @@ public class DrawAll : MonoBehaviour
 {
     public Map map { get; set; }
 
-    DrawAll(Map map_)
+    public DrawAll(Map map_)
     {
         map = map_;
     }
@@ -24,6 +24,7 @@ public class DrawAll : MonoBehaviour
 
     public static Tilemap drawToTileMap(Tilemap toDrawOn, Map map)
     {
+        // Draw the hallways first, then the rooms
         foreach (var hall in map.hallways)
         {
             hall.drawToTileMap(toDrawOn);
